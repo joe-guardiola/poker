@@ -1,7 +1,7 @@
 package poker;
 
 public class Card {
-	private String suit;
+	private String suit; 
 	private int value;
 	
 	public Card(int v, String s) throws CardException{
