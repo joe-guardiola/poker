@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import org.junit.Test;
 
 public class Tests {
+	
 	@Test
 	public void testCardConstructor() {
 		Card c;
@@ -24,7 +25,7 @@ public class Tests {
 			Card c = new Card(-1,"Bad");
 			fail();
 		} catch(CardException e) {
-			System.out.println("This is expected.");
+			System.out.println("This is expected of a bad card creation.");
 		}
 	}
 	@Test
@@ -46,7 +47,6 @@ public class Tests {
 			e.printStackTrace();
 		}
 	}
-	
 	@Test 
 	public void testHandSort() {
 		try{
@@ -69,7 +69,6 @@ public class Tests {
 			e.printStackTrace();
 		}
 	}
-	
 	@Test
 	public void testGetStraightFlush() {
 		ArrayList <Card> testHand = new ArrayList <Card>();
@@ -92,7 +91,6 @@ public class Tests {
 			e.printStackTrace();
 		}
 	}
-	
 	@Test
 	public void testIsRoyalFlush() {
 		ArrayList <Card> testHand = new ArrayList <Card>();
@@ -115,7 +113,6 @@ public class Tests {
 			e.printStackTrace();
 		}
 	}
-	
 	@Test
 	public void testIsStraightFlush() {
 		ArrayList <Card> testHand = new ArrayList <Card>();
@@ -138,7 +135,6 @@ public class Tests {
 			e.printStackTrace();
 		}
 	}
-	
 	@Test
 	public void testIsFourOfAKind() {
 		ArrayList <Card> testHand = new ArrayList <Card>();
@@ -153,6 +149,16 @@ public class Tests {
 			p.sortHand();
 			assertEquals(false, p.isFourOfAKind());
 			
+			testHand.clear();
+			testHand.add(new Card(13,"Hearts"));
+			testHand.add(new Card(13,"Spades"));
+			testHand.add(new Card(13,"Clubs"));
+			testHand.add(new Card(13,"Diamonds"));
+			testHand.add(new Card(9,"Hearts"));
+			p.setPokerHand(testHand);
+			p.sortHand();
+			assertEquals(true, p.isFourOfAKind());
+			
 		} catch (CardException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -161,7 +167,6 @@ public class Tests {
 			e.printStackTrace();
 		}
 	}
-	
 	@Test
 	public void testIsFullHouse() {
 		ArrayList <Card> testHand = new ArrayList <Card>();
@@ -186,7 +191,6 @@ public class Tests {
 			e.printStackTrace();
 		}
 	}
-	
 	@Test
 	public void testIsFlush() {
 		ArrayList <Card> testHand = new ArrayList <Card>();
@@ -209,7 +213,6 @@ public class Tests {
 			e.printStackTrace();
 		}
 	}
-	
 	@Test
 	public void testIsStraight() {
 		ArrayList <Card> testHand = new ArrayList <Card>();
@@ -232,7 +235,6 @@ public class Tests {
 			e.printStackTrace();
 		}
 	}
-	
 	@Test
 	public void testIsThreeOfAKind() {
 		ArrayList <Card> testHand = new ArrayList <Card>();
@@ -255,7 +257,6 @@ public class Tests {
 			e.printStackTrace();
 		}
 	}
-	
 	@Test
 	public void testIsTwoPair() {
 		ArrayList <Card> testHand = new ArrayList <Card>();
@@ -278,7 +279,6 @@ public class Tests {
 			e.printStackTrace();
 		}
 	}
-	
 	@Test
 	public void testIsPair() {
 		ArrayList <Card> testHand = new ArrayList <Card>();
@@ -301,4 +301,29 @@ public class Tests {
 			e.printStackTrace();
 		}
 	}
+	@Test
+	public void testPokerConstructor() {
+		try {
+			Poker p = new Poker(500);
+			fail();
+		} catch (HandSizeException e) {
+			System.out.println("This is expected of a bad hand amount");
+		}
+	}
+	@Test
+	public void testDealCards() {
+		try {
+			Deck d = new Deck();
+			ArrayList<Card> testHand = new ArrayList <Card>();
+			d.dealCards(testHand, 7);
+			assertEquals(7, testHand.size());
+		} catch (CardException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (EmptyDeckException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 }

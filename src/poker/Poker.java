@@ -304,7 +304,7 @@ public class Poker {
 		return numOfValue == 1;
 	}
 
-	public void playAndDisplay() throws CardException //Poker& p????
+	public void playAndDisplay() throws CardException, EmptyDeckException 
 	{
 		for(int i = 0; i < getNumberOfHandsToPlay(); i++)
 		{

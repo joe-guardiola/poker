@@ -2,7 +2,7 @@ package poker;
 
 public class Main {
 
-	public static void main(String[] args) throws HandSizeException, CardException {
+	public static void main(String[] args) throws HandSizeException, CardException, EmptyDeckException {
 		// TODO Auto-generated method stub
 		//i added a line
 		Poker p1 = new Poker(5); 

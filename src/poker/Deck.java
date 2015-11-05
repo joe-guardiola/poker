@@ -30,12 +30,17 @@ public class Deck {
 		}
 	}
 	
-	public void dealCards(ArrayList <Card> hand, int numCards)
+	public void dealCards(ArrayList <Card> hand, int numCards) throws EmptyDeckException
 	{
 		for(int i = 0; i<numCards;i++)
 		{
-			hand.add(deckOfCards.get(deckOfCards.size() - 1));
-			deckOfCards.remove(deckOfCards.size() - 1);
+			if(!deckOfCards.isEmpty()) {
+				hand.add(deckOfCards.get(deckOfCards.size() - 1));
+				deckOfCards.remove(deckOfCards.size() - 1);
+			}
+			else {
+				throw new EmptyDeckException();
+			}
 		}
 	}
 	
