@@ -30,7 +30,12 @@ public class Poker {
 			fiveOrSevenCard = c;
 		}
 	}
-	
+	public ArrayList<Card> getPokerHand() {
+		return pokerHand;
+	}
+	public void setPokerHand(ArrayList <Card> hand) {
+		pokerHand = hand;
+	}
 	public void sortHand() throws CardException
 	{
 		for(int j = 0; j < (pokerHand.size() - 1); j++)

@@ -13,5 +13,4 @@ public class Main {
 		p2.setNumberOfHandsToPlay(10000000);
 		p2.playAndDisplay();
 	}
-
 }
